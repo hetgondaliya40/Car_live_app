@@ -10,6 +10,6 @@ void main() {
     ),
   );
   runApp(
-    CarApp(),
+    const CarApp(),
   );
 }
