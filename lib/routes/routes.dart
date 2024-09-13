@@ -12,6 +12,6 @@ class Routes {
   static Map<String, WidgetBuilder> myRoutes = {
     splashScreen: (context) => const SplashScreen(),
     homePage: (context) => const HomePage(),
-    homePage2: (context) => const Homepage2(),
+    homePage: (context) => const Homepage2(),
   };
 }
