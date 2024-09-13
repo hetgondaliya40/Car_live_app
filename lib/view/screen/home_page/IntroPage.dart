@@ -3,14 +3,14 @@ import 'package:new_appp_1_0/routes/routes.dart';
 
 import '../../headers/headers.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class IntroPage extends StatefulWidget {
+  const IntroPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<IntroPage> createState() => _IntroPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _IntroPageState extends State<IntroPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, Routes.homePage);
+              Navigator.pushNamed(context, Routes.homePage2);
             },
             child: Container(
               height: 50.h,

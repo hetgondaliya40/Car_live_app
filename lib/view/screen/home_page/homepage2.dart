@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:new_appp_1_0/routes/routes.dart';
+
+import '../../componate/variable.dart';
 
 class Homepage2 extends StatefulWidget {
   const Homepage2({super.key});
@@ -9,7 +12,6 @@ class Homepage2 extends StatefulWidget {
 }
 
 class _Homepage2State extends State<Homepage2> {
-  String name = "";
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -68,6 +70,8 @@ class _Homepage2State extends State<Homepage2> {
               (name.isEmpty)
                   ? Container()
                   : GestureDetector(
+                      onTap: () =>
+                          Navigator.pushNamed(context, Routes.Userinterface),
                       child: Container(
                         height: 50.h,
                         width: 250.h,
