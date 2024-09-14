@@ -1,6 +1,5 @@
 import 'package:new_appp_1_0/view/screen/Userinterface/Userinterface.dart';
 import 'package:new_appp_1_0/view/screen/home_page/homepage2.dart';
-import 'package:new_appp_1_0/view/screen/home_page/homrpage3.dart';
 
 import '../view/headers/headers.dart';
 import '../view/screen/home_page/IntroPage.dart';
@@ -18,6 +17,5 @@ class Routes {
     intro: (context) => const IntroPage(),
     homePage2: (context) => const Homepage2(),
     Userinterface: (context) => const User(),
-    homepage3: (context) => const Homepage3(),
   };
 }

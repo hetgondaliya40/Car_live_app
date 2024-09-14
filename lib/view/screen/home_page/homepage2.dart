@@ -96,11 +96,6 @@ class _Homepage2State extends State<Homepage2> {
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.pushNamed(context, Routes.homepage3);
-          },
-        ),
       ),
     );
   }
