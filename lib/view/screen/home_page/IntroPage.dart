@@ -59,7 +59,7 @@ class _IntroPageState extends State<IntroPage> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, Routes.homePage2);
+              Navigator.pushReplacementNamed(context, Routes.homePage2);
             },
             child: Container(
               height: 50.h,

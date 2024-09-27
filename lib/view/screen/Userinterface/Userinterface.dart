@@ -1,7 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_appp_1_0/list/carnamelist/carname.dart';
+import 'package:new_appp_1_0/routes/routes.dart';
 import 'package:new_appp_1_0/view/componate/variable.dart';
+import 'package:new_appp_1_0/view/screen/home_page/homepage2.dart';
+import 'package:cupertino_icons/cupertino_icons.dart';
 
 import '../../../list/carnamelist/CarAssignData.dart';
 
@@ -22,8 +26,8 @@ class _UserState extends State<User> {
     carList.add(CarAssignData("Toyota", "assets/carlogoimage/toyota.png"));
     carList.add(CarAssignData("Hyundai", "assets/carlogoimage/cars.png"));
     carList.add(CarAssignData("Kia", "assets/carlogoimage/kia.png"));
-    carList.add(CarAssignData("Mazda", "assets/carlogoimage/Mazda.png"));
-    carList.add(CarAssignData("Audi", "assets/carlogoimage/Audi.png"));
+    carList.add(CarAssignData("Skoda", "assets/carlogoimage/Mazda.png"));
+    carList.add(CarAssignData("Volkswagen", "assets/carlogoimage/Audi.png"));
 
     // TODO: implement initState
     super.initState();
@@ -37,17 +41,19 @@ class _UserState extends State<User> {
       },
       child: SafeArea(
         child: Scaffold(
-          backgroundColor: const Color(0xffEAECEE),
+          backgroundColor: Colors.white,
           body: Column(
             children: [
               SizedBox(
                 height: 25.h,
               ),
               ListTile(
-                leading: CircleAvatar(
-                  radius: 30.w,
-                  backgroundImage: const NetworkImage(
-                      "https://instagram.famd5-2.fna.fbcdn.net/v/t51.2885-19/358029274_811505476970692_1864232310029346906_n.jpg?stp=dst-jpg_s640x640&_nc_ht=instagram.famd5-2.fna.fbcdn.net&_nc_cat=104&_nc_ohc=QpwDXkoUFjQQ7kNvgHOdE0T&_nc_gid=819803ee0cdc47978d7507409a31ca9d&edm=APs17CUBAAAA&ccb=7-5&oh=00_AYCU58WbQtY1NGU1d7T4h_ZPseXrhGXz2VdoN2FGNLRXMg&oe=66EA10FC&_nc_sid=10d13b"),
+                leading: GestureDetector(
+                  onTap: () => Navigator.pushNamed(context, Routes.Profile),
+                  child: CircleAvatar(
+                    radius: 30.w,
+                    backgroundImage: FileImage(image!),
+                  ),
                 ),
                 title: Text(
                   "Welcome 👋",
@@ -65,10 +71,11 @@ class _UserState extends State<User> {
                 ),
                 trailing: CircleAvatar(
                   radius: 25.w,
-                  backgroundColor: Colors.white,
+                  backgroundColor: Colors.black,
                   child: Icon(
                     Icons.notifications_none_rounded,
                     size: 25.w,
+                    color: Colors.white,
                   ),
                 ),
               ),
@@ -76,12 +83,20 @@ class _UserState extends State<User> {
                 height: 10.h,
               ),
               Padding(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.only(right: 12, left: 12),
                 child: TextField(
                   decoration: InputDecoration(
+                    hintText: "Search for cars...",
+                    hintStyle: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      color: Colors.grey.shade500,
+                    ),
                     prefixIconColor: Colors.black,
                     prefixIcon: Icon(Icons.search),
                     border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
@@ -99,11 +114,11 @@ class _UserState extends State<User> {
                   itemBuilder: (context, index) {
                     final item = carList[index];
                     return Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 15.w),
+                      padding: EdgeInsets.only(left: 12, right: 12),
                       child: Column(
                         children: [
                           CircleAvatar(
-                            radius: 45,
+                            radius: 30.w,
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Image.asset(item.image),
@@ -117,7 +132,7 @@ class _UserState extends State<User> {
                             item.name,
                             style: TextStyle(
                               color: Colors.grey.shade600,
-                              fontSize: 21.sp,
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.w900,
                             ),
                           ),
@@ -131,6 +146,56 @@ class _UserState extends State<User> {
                 ),
               ),
             ],
+          ),
+          bottomNavigationBar: Container(
+            width: double.infinity,
+            height: 50,
+            margin: const EdgeInsets.all(15),
+            padding: const EdgeInsets.all(5),
+            decoration: BoxDecoration(
+              color: const Color(0xff1f2029),
+              borderRadius: BorderRadius.circular(100),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Icon(
+                  CupertinoIcons.home,
+                  size: 25,
+                  color: Colors.grey,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    /* Navigator.pushNamed(context, Routes.cartPage);*/
+                  },
+                  child: Icon(
+                    CupertinoIcons.cart,
+                    color: Colors.grey,
+                    size: 25,
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    /*      Navigator.pushNamed(context, Routes.favPage);*/
+                  },
+                  child: Icon(
+                    CupertinoIcons.heart,
+                    color: Colors.grey,
+                    size: 25,
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, Routes.Setting);
+                  },
+                  child: Icon(
+                    CupertinoIcons.settings,
+                    color: Colors.grey,
+                    size: 25,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
