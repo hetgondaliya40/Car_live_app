@@ -186,7 +186,7 @@ class _UserState extends State<User> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, Routes.add);
+                    Navigator.pushNamed(context, Routes.identity);
                   },
                   child: Icon(
                     CupertinoIcons.add,
