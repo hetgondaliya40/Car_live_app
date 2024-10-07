@@ -1,3 +1,5 @@
+import 'package:carousel_slider/carousel_options.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,16 +20,17 @@ class User extends StatefulWidget {
 
 class _UserState extends State<User> {
   List<CarAssignData> carList = [];
-
+  int _currentCarouselIndex = 0;
+  List imageList = [
+    "lib/view/screen/Userinterface/assets/image1.jpeg",
+    "lib/view/screen/Userinterface/assets/image2.jpeg",
+    "lib/view/screen/Userinterface/assets/image3.jpeg",
+    "lib/view/screen/Userinterface/assets/image4.jpeg",
+    "lib/view/screen/Userinterface/assets/image5.jpeg",
+  ];
   @override
   void initState() {
-    carList.add(CarAssignData("Suzuki", "assets/carlogoimage/suzuki.png"));
-    carList.add(CarAssignData("Honda", "assets/carlogoimage/honda.png"));
-    carList.add(CarAssignData("Toyota", "assets/carlogoimage/toyota.png"));
-    carList.add(CarAssignData("Hyundai", "assets/carlogoimage/cars.png"));
-    carList.add(CarAssignData("Kia", "assets/carlogoimage/kia.png"));
-    carList.add(CarAssignData("Skoda", "assets/carlogoimage/Mazda.png"));
-    carList.add(CarAssignData("Volkswagen", "assets/carlogoimage/Audi.png"));
+
 
     // TODO: implement initState
     super.initState();
@@ -102,49 +105,109 @@ class _UserState extends State<User> {
                   ),
                 ),
               ),
+
+            Padding(padding: const EdgeInsets.only(left: 10,top:15,),
+            child: Row(
+
+              children: [Text("New Arrivals",style: TextStyle(
+                fontSize: 21.sp,
+                fontWeight: FontWeight.bold,
+              ),),],
+            ),),
               SizedBox(
-                height: 25.h,
-              ),
-              SizedBox(
-                height: 130.h,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: carList.length,
-                  itemBuilder: (context, index) {
-                    final item = carList[index];
-                    return Padding(
-                      padding: EdgeInsets.only(left: 12, right: 12),
-                      child: Column(
+                height: 220.h,
+                child: CarouselSlider.builder(
+                  itemCount: imageList.length,
+                  itemBuilder: (
+                      context,
+                      index,
+                      realIndex,
+                      ) {
+                    return AnimatedContainer(
+                      duration: const Duration(
+                        milliseconds: 500,
+                      ),
+                      curve: Curves.easeInOut,
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 8.0,
+                        vertical: 16.0,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.3),
+                            blurRadius: 8.0,
+                            spreadRadius: 3.0,
+                            offset: const Offset(
+                              0,
+                              4,
+                            ),
+                          ),
+                        ],
+                        image: DecorationImage(
+                          image: AssetImage(
+                            imageList[index],
+                          ),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      child: Stack(
                         children: [
-                          CircleAvatar(
-                            radius: 30.w,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Image.asset(item.image),
-                            ),
-                            backgroundColor: Colors.black,
-                          ),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                          Text(
-                            item.name,
-                            style: TextStyle(
-                              color: Colors.grey.shade600,
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w900,
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15.0),
+                              gradient: LinearGradient(
+                                begin: Alignment.bottomCenter,
+                                end: Alignment.topCenter,
+                                colors: [
+                                  Colors.black.withOpacity(0.6),
+                                  Colors.transparent,
+                                ],
+                              ),
                             ),
                           ),
-                          SizedBox(
-                            width: 14.w,
-                          )
                         ],
                       ),
                     );
                   },
+                  options: CarouselOptions(
+                    height: 250.h,
+                    autoPlay: true,
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                    autoPlayAnimationDuration: const Duration(
+                      milliseconds: 1200,
+                    ),
+                    enlargeCenterPage: true,
+                    aspectRatio: 16 / 9,
+                    enableInfiniteScroll: true,
+                    enlargeStrategy: CenterPageEnlargeStrategy.scale,
+                    autoPlayInterval: const Duration(
+                      seconds: 3,
+                    ),
+                    scrollPhysics: const BouncingScrollPhysics(),
+                    onPageChanged: (
+                        index,
+                        reason,
+                        ) {
+                      setState(() {
+                        _currentCarouselIndex = index;
+                      });
+                    },
+                  ),
                 ),
               ),
+             Padding(
+               padding: const EdgeInsets.only(left: 10,top: 5),
+               child: Row(
+                 children: [
+                   Text("All cars",
+                   style: TextStyle(
+                     fontSize: 18,
+                   ),),
+                 ],
+               ),
+             )
             ],
           ),
           bottomNavigationBar: Container(

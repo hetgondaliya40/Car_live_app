@@ -298,7 +298,7 @@ class _SettingState extends State<ADD> {
                          //  Regcontroller = ;
                          // Yearcontroller = ;
                         if(key.currentState?.validate() == true){
-                          // registration = Regcontroller.text;
+
                           
                         }
                         Navigator.pushReplacementNamed(context, Routes.Userinterface,);
