@@ -6,13 +6,17 @@ class Identity extends StatefulWidget {
 
   @override
   State<Identity> createState() => _IdentityState();
+
+
 }
 
 class _IdentityState extends State<Identity> {
   @override
+  String pass = "12345678";
+  TextEditingController passcontroller = TextEditingController();
   Widget build(BuildContext context) {
-    String pass = "12345678";
-    TextEditingController passcontroller = TextEditingController();
+
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(12),
@@ -28,9 +32,12 @@ class _IdentityState extends State<Identity> {
             ),
             ElevatedButton(
               onPressed: () {
-                (passcontroller == pass)
-                    ? Navigator.pushNamed(context, Routes.add)
+                (passcontroller.text == pass)
+                    ? Navigator.pushReplacementNamed(context, Routes.add,)
                     : Text("Try again");
+                setState(() {
+
+                });
               },
               child: Text("hgecbh"),
             ),

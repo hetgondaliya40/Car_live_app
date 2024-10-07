@@ -51,8 +51,8 @@ class _IntroPageState extends State<IntroPage> {
             ),
           ),
           Image(
-            image: NetworkImage(
-                "https://i.pinimg.com/564x/af/f6/a6/aff6a6b0aa69b1019c7188142181e36f.jpg"),
+            image: AssetImage(
+                "assets/background.jpg",),
           ),
           Spacer(
             flex: 2,
