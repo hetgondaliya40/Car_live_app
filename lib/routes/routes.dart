@@ -24,6 +24,6 @@ class Routes {
     homePage2: (context) => const Homepage2(),
     Userinterface: (context) => const User(),
     identity: (context) => const Identity(),
-    add: (context) => const ADD(),
+    add: (context) => const AddCarPage(),
   };
 }

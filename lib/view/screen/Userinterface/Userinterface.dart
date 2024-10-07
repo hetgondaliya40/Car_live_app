@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_appp_1_0/list/carnamelist/carname.dart';
 import 'package:new_appp_1_0/routes/routes.dart';
 import 'package:new_appp_1_0/view/componate/variable.dart';
+import 'package:new_appp_1_0/view/screen/Add/add.dart';
 import 'package:new_appp_1_0/view/screen/home_page/homepage2.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
 
@@ -19,7 +20,6 @@ class User extends StatefulWidget {
 }
 
 class _UserState extends State<User> {
-  List<CarAssignData> carList = [];
   int _currentCarouselIndex = 0;
   List imageList = [
     "lib/view/screen/Userinterface/assets/image1.jpeg",
@@ -28,13 +28,6 @@ class _UserState extends State<User> {
     "lib/view/screen/Userinterface/assets/image4.jpeg",
     "lib/view/screen/Userinterface/assets/image5.jpeg",
   ];
-  @override
-  void initState() {
-
-
-    // TODO: implement initState
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,170 +38,214 @@ class _UserState extends State<User> {
       child: SafeArea(
         child: Scaffold(
           backgroundColor: Colors.white,
-          body: Column(
-            children: [
-              SizedBox(
-                height: 25.h,
-              ),
-              ListTile(
-                leading: GestureDetector(
-                  onTap: () => Navigator.pushNamed(context, Routes.Profile),
-                  child: CircleAvatar(
-                    radius: 30.w,
-                    backgroundImage: FileImage(image!),
-                  ),
+          body: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 25.h,
                 ),
-                title: Text(
-                  "Welcome 👋",
-                  style: TextStyle(
-                    fontSize: 12.sp,
-                    color: Colors.grey.shade600,
-                  ),
-                ),
-                subtitle: Text(
-                  "$name",
-                  style: TextStyle(
-                    fontSize: 20.sp,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                trailing: CircleAvatar(
-                  radius: 25.w,
-                  backgroundColor: Colors.black,
-                  child: Icon(
-                    Icons.notifications_none_rounded,
-                    size: 25.w,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 10.h,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 12, left: 12),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: "Search for cars...",
-                    hintStyle: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: Colors.grey.shade500,
+                ListTile(
+                  leading: GestureDetector(
+                    onTap: () => Navigator.pushNamed(context, Routes.Profile),
+                    child: CircleAvatar(
+                      radius: 30.w,
+                      backgroundImage: FileImage(image!),
                     ),
-                    prefixIconColor: Colors.black,
-                    prefixIcon: Icon(Icons.search),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
+                  ),
+                  title: Text(
+                    "Welcome 👋",
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      color: Colors.grey.shade600,
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
+                  ),
+                  subtitle: Text(
+                    "$name",
+                    style: TextStyle(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  trailing: CircleAvatar(
+                    radius: 25.w,
+                    backgroundColor: Colors.black,
+                    child: Icon(
+                      Icons.notifications_none_rounded,
+                      size: 25.w,
+                      color: Colors.white,
                     ),
                   ),
                 ),
-              ),
-
-            Padding(padding: const EdgeInsets.only(left: 10,top:15,),
-            child: Row(
-
-              children: [Text("New Arrivals",style: TextStyle(
-                fontSize: 21.sp,
-                fontWeight: FontWeight.bold,
-              ),),],
-            ),),
-              SizedBox(
-                height: 220.h,
-                child: CarouselSlider.builder(
-                  itemCount: imageList.length,
-                  itemBuilder: (
-                      context,
-                      index,
-                      realIndex,
-                      ) {
-                    return AnimatedContainer(
-                      duration: const Duration(
-                        milliseconds: 500,
+                SizedBox(
+                  height: 10.h,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 12, left: 12),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: "Search for cars...",
+                      hintStyle: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: Colors.grey.shade500,
                       ),
-                      curve: Curves.easeInOut,
-                      margin: const EdgeInsets.symmetric(
-                        horizontal: 8.0,
-                        vertical: 16.0,
+                      prefixIconColor: Colors.black,
+                      prefixIcon: const Icon(Icons.search),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
                       ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15.0),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.3),
-                            blurRadius: 8.0,
-                            spreadRadius: 3.0,
-                            offset: const Offset(
-                              0,
-                              4,
-                            ),
-                          ),
-                        ],
-                        image: DecorationImage(
-                          image: AssetImage(
-                            imageList[index],
-                          ),
-                          fit: BoxFit.cover,
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10, top: 15),
+                  child: Row(
+                    children: [
+                      Text(
+                        "New Arrivals",
+                        style: TextStyle(
+                          fontSize: 21.sp,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                      child: Stack(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15.0),
-                              gradient: LinearGradient(
-                                begin: Alignment.bottomCenter,
-                                end: Alignment.topCenter,
-                                colors: [
-                                  Colors.black.withOpacity(0.6),
-                                  Colors.transparent,
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                  options: CarouselOptions(
-                    height: 250.h,
-                    autoPlay: true,
-                    autoPlayCurve: Curves.fastOutSlowIn,
-                    autoPlayAnimationDuration: const Duration(
-                      milliseconds: 1200,
-                    ),
-                    enlargeCenterPage: true,
-                    aspectRatio: 16 / 9,
-                    enableInfiniteScroll: true,
-                    enlargeStrategy: CenterPageEnlargeStrategy.scale,
-                    autoPlayInterval: const Duration(
-                      seconds: 3,
-                    ),
-                    scrollPhysics: const BouncingScrollPhysics(),
-                    onPageChanged: (
-                        index,
-                        reason,
-                        ) {
-                      setState(() {
-                        _currentCarouselIndex = index;
-                      });
-                    },
+                    ],
                   ),
                 ),
-              ),
-             Padding(
-               padding: const EdgeInsets.only(left: 10,top: 5),
-               child: Row(
-                 children: [
-                   Text("All cars",
-                   style: TextStyle(
-                     fontSize: 18,
-                   ),),
-                 ],
-               ),
-             )
-            ],
+                SizedBox(
+                  height: 220.h,
+                  child: CarouselSlider.builder(
+                    itemCount: imageList.length,
+                    itemBuilder: (context, index, realIndex) {
+                      return AnimatedContainer(
+                        duration: const Duration(
+                          milliseconds: 500,
+                        ),
+                        curve: Curves.easeInOut,
+                        margin: const EdgeInsets.symmetric(
+                          horizontal: 8.0,
+                          vertical: 16.0,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.3),
+                              blurRadius: 8.0,
+                              spreadRadius: 3.0,
+                              offset: const Offset(0, 4),
+                            ),
+                          ],
+                          image: DecorationImage(
+                            image: AssetImage(imageList[index]),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        child: Stack(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15.0),
+                                gradient: LinearGradient(
+                                  begin: Alignment.bottomCenter,
+                                  end: Alignment.topCenter,
+                                  colors: [
+                                    Colors.black.withOpacity(0.6),
+                                    Colors.transparent,
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                    options: CarouselOptions(
+                      height: 250.h,
+                      autoPlay: true,
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      autoPlayAnimationDuration: const Duration(
+                        milliseconds: 1200,
+                      ),
+                      enlargeCenterPage: true,
+                      aspectRatio: 16 / 9,
+                      enableInfiniteScroll: true,
+                      enlargeStrategy: CenterPageEnlargeStrategy.scale,
+                      autoPlayInterval: const Duration(
+                        seconds: 3,
+                      ),
+                      scrollPhysics: const BouncingScrollPhysics(),
+                      onPageChanged: (index, reason) {
+                        setState(() {
+                          _currentCarouselIndex = index;
+                        });
+                      },
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10, top: 5),
+                  child: Row(
+                    children: [
+                      Text(
+                        "All cars",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: carList.isNotEmpty
+                      ? ListView.builder(
+                          padding: EdgeInsets.all(8),
+                          itemCount: carList.length,
+                          itemBuilder: (context, index) {
+                            final car = carList[index];
+                            return ListTile(
+                              leading: Icon(
+                                Icons.directions_car,
+                                color: Colors.black,
+                                size: 35.w,
+                              ),
+                              title: Text(
+                                car.maker + " " + car.model,
+                                style: TextStyle(
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              subtitle: Text(
+                                "Year: ${car.year} | Fuel: ${car.fuel}",
+                                style: TextStyle(fontSize: 14.sp),
+                              ),
+                              trailing: Text(
+                                "₹${car.askingPrice}",
+                                style: TextStyle(
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            );
+                          },
+                        )
+                      : Center(
+                          child: Text(
+                            "No cars available",
+                            style: TextStyle(
+                              fontSize: 18.sp,
+                              color: Colors.grey.shade600,
+                            ),
+                          ),
+                        ),
+                ),
+              ],
+            ),
           ),
           bottomNavigationBar: Container(
             width: double.infinity,
@@ -222,26 +259,22 @@ class _UserState extends State<User> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Icon(
+                const Icon(
                   CupertinoIcons.home,
                   size: 25,
                   color: Colors.grey,
                 ),
                 GestureDetector(
-                  onTap: () {
-                    /* Navigator.pushNamed(context, Routes.cartPage);*/
-                  },
-                  child: Icon(
+                  onTap: () {},
+                  child: const Icon(
                     CupertinoIcons.cart,
                     color: Colors.grey,
                     size: 25,
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {
-                    /*      Navigator.pushNamed(context, Routes.favPage);*/
-                  },
-                  child: Icon(
+                  onTap: () {},
+                  child: const Icon(
                     CupertinoIcons.heart,
                     color: Colors.grey,
                     size: 25,
@@ -251,7 +284,7 @@ class _UserState extends State<User> {
                   onTap: () {
                     Navigator.pushNamed(context, Routes.identity);
                   },
-                  child: Icon(
+                  child: const Icon(
                     CupertinoIcons.add,
                     color: Colors.grey,
                     size: 25,
