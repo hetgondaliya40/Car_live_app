@@ -42,158 +42,168 @@ class _UserState extends State<User> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: 25.h,
-                ),
-                ListTile(
-                  leading: GestureDetector(
-                    onTap: () => Navigator.pushNamed(context, Routes.Profile),
-                    child: CircleAvatar(
-                      radius: 30.w,
-                      backgroundImage: FileImage(image!),
-                    ),
-                  ),
-                  title: Text(
-                    "Welcome 👋",
-                    style: TextStyle(
-                      fontSize: 12.sp,
-                      color: Colors.grey.shade600,
-                    ),
-                  ),
-                  subtitle: Text(
-                    "$name",
-                    style: TextStyle(
-                      fontSize: 20.sp,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  trailing: CircleAvatar(
-                    radius: 25.w,
-                    backgroundColor: Colors.black,
-                    child: Icon(
-                      Icons.notifications_none_rounded,
-                      size: 25.w,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10.h,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 12, left: 12),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Search for cars...",
-                      hintStyle: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: Colors.grey.shade500,
-                      ),
-                      prefixIconColor: Colors.black,
-                      prefixIcon: const Icon(Icons.search),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 10, top: 15),
-                  child: Row(
+                Expanded(
+                  child: Column(
                     children: [
-                      Text(
-                        "New Arrivals",
-                        style: TextStyle(
-                          fontSize: 21.sp,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      SizedBox(
+                        height: 25.h,
                       ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 220.h,
-                  child: CarouselSlider.builder(
-                    itemCount: imageList.length,
-                    itemBuilder: (context, index, realIndex) {
-                      return AnimatedContainer(
-                        duration: const Duration(
-                          milliseconds: 500,
-                        ),
-                        curve: Curves.easeInOut,
-                        margin: const EdgeInsets.symmetric(
-                          horizontal: 8.0,
-                          vertical: 16.0,
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15.0),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.3),
-                              blurRadius: 8.0,
-                              spreadRadius: 3.0,
-                              offset: const Offset(0, 4),
-                            ),
-                          ],
-                          image: DecorationImage(
-                            image: AssetImage(imageList[index]),
-                            fit: BoxFit.cover,
+                      ListTile(
+                        leading: GestureDetector(
+                          onTap: () =>
+                              Navigator.pushNamed(context, Routes.Profile),
+                          child: CircleAvatar(
+                            radius: 30.w,
+                            backgroundImage: FileImage(image!),
                           ),
                         ),
-                        child: Stack(
+                        title: Text(
+                          "Welcome 👋",
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            color: Colors.grey.shade600,
+                          ),
+                        ),
+                        subtitle: Text(
+                          "$name",
+                          style: TextStyle(
+                            fontSize: 20.sp,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        trailing: CircleAvatar(
+                          radius: 25.w,
+                          backgroundColor: Colors.black,
+                          child: Icon(
+                            Icons.notifications_none_rounded,
+                            size: 25.w,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          right: 12,
+                          left: 12,
+                        ),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: "Search for cars...",
+                            hintStyle: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              color: Colors.grey.shade500,
+                            ),
+                            prefixIconColor: Colors.black,
+                            prefixIcon: const Icon(Icons.search),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10, top: 15),
+                        child: Row(
                           children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15.0),
-                                gradient: LinearGradient(
-                                  begin: Alignment.bottomCenter,
-                                  end: Alignment.topCenter,
-                                  colors: [
-                                    Colors.black.withOpacity(0.6),
-                                    Colors.transparent,
-                                  ],
-                                ),
+                            Text(
+                              "New Arrivals",
+                              style: TextStyle(
+                                fontSize: 21.sp,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ],
                         ),
-                      );
-                    },
-                    options: CarouselOptions(
-                      height: 250.h,
-                      autoPlay: true,
-                      autoPlayCurve: Curves.fastOutSlowIn,
-                      autoPlayAnimationDuration: const Duration(
-                        milliseconds: 1200,
                       ),
-                      enlargeCenterPage: true,
-                      aspectRatio: 16 / 9,
-                      enableInfiniteScroll: true,
-                      enlargeStrategy: CenterPageEnlargeStrategy.scale,
-                      autoPlayInterval: const Duration(
-                        seconds: 3,
+                      SizedBox(
+                        height: 220.h,
+                        child: CarouselSlider.builder(
+                          itemCount: imageList.length,
+                          itemBuilder: (context, index, realIndex) {
+                            return AnimatedContainer(
+                              duration: const Duration(
+                                milliseconds: 500,
+                              ),
+                              curve: Curves.easeInOut,
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 8.0,
+                                vertical: 16.0,
+                              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15.0),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.3),
+                                    blurRadius: 8.0,
+                                    spreadRadius: 3.0,
+                                    offset: const Offset(0, 4),
+                                  ),
+                                ],
+                                image: DecorationImage(
+                                  image: AssetImage(imageList[index]),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              child: Stack(
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15.0),
+                                      gradient: LinearGradient(
+                                        begin: Alignment.bottomCenter,
+                                        end: Alignment.topCenter,
+                                        colors: [
+                                          Colors.black.withOpacity(0.6),
+                                          Colors.transparent,
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                          options: CarouselOptions(
+                            height: 250.h,
+                            autoPlay: true,
+                            autoPlayCurve: Curves.fastOutSlowIn,
+                            autoPlayAnimationDuration: const Duration(
+                              milliseconds: 1200,
+                            ),
+                            enlargeCenterPage: true,
+                            aspectRatio: 16 / 9,
+                            enableInfiniteScroll: true,
+                            enlargeStrategy: CenterPageEnlargeStrategy.scale,
+                            autoPlayInterval: const Duration(
+                              seconds: 3,
+                            ),
+                            scrollPhysics: const BouncingScrollPhysics(),
+                            onPageChanged: (index, reason) {
+                              setState(() {
+                                _currentCarouselIndex = index;
+                              });
+                            },
+                          ),
+                        ),
                       ),
-                      scrollPhysics: const BouncingScrollPhysics(),
-                      onPageChanged: (index, reason) {
-                        setState(() {
-                          _currentCarouselIndex = index;
-                        });
-                      },
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 10, top: 5),
-                  child: Row(
-                    children: [
-                      Text(
-                        "All cars",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10, top: 5),
+                        child: Row(
+                          children: [
+                            Text(
+                              "All cars",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
@@ -201,37 +211,72 @@ class _UserState extends State<User> {
                 ),
                 Expanded(
                   child: carList.isNotEmpty
-                      ? ListView.builder(
+                      ? GridView.builder(
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            mainAxisExtent: 200.h,
+                          ),
                           padding: EdgeInsets.all(8),
                           itemCount: carList.length,
                           itemBuilder: (context, index) {
                             final car = carList[index];
-                            return ListTile(
-                              leading: Icon(
-                                Icons.directions_car,
-                                color: Colors.black,
-                                size: 35.w,
+                            return Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
                               ),
-                              title: Text(
-                                car.maker + " " + car.model,
-                                style: TextStyle(
-                                  fontSize: 18.sp,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                              subtitle: Text(
-                                "Year: ${car.year} | Fuel: ${car.fuel}",
-                                style: TextStyle(fontSize: 14.sp),
-                              ),
-                              trailing: Text(
-                                "₹${car.askingPrice}",
-                                style: TextStyle(
-                                  fontSize: 16.sp,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                ),
+                              elevation: 5,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Icon(
+                                    Icons.directions_car,
+                                    color: Colors.black,
+                                    size: 35.w,
+                                  ),
+                                  Text(
+                                    car.maker + " " + car.model,
+                                    style: TextStyle(
+                                      fontSize: 18.sp,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  Text(
+                                    "Year: ${car.year} | Fuel: ${car.fuel}",
+                                    style: TextStyle(fontSize: 14.sp),
+                                  ),
+                                  Text(
+                                    "₹${car.askingPrice}",
+                                  ),
+                                ],
                               ),
                             );
+                            // return ListTile(
+                            //   leading: Icon(
+                            //     Icons.directions_car,
+                            //     color: Colors.black,
+                            //     size: 35.w,
+                            //   ),
+                            //   title: Text(
+                            //     car.maker + " " + car.model,
+                            //     style: TextStyle(
+                            //       fontSize: 18.sp,
+                            //       fontWeight: FontWeight.w600,
+                            //     ),
+                            //   ),
+                            //   subtitle: Text(
+                            //     "Year: ${car.year} | Fuel: ${car.fuel}",
+                            //     style: TextStyle(fontSize: 14.sp),
+                            //   ),
+                            //   trailing: Text(
+                            //     "₹${car.askingPrice}",
+                            //     style: TextStyle(
+                            //       fontSize: 16.sp,
+                            //       fontWeight: FontWeight.bold,
+                            //       color: Colors.black,
+                            //     ),
+                            //   ),
+                            // );
                           },
                         )
                       : Center(
