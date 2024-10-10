@@ -220,10 +220,13 @@ class _UserState extends State<User> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                Icon(
-                                  Icons.directions_car,
-                                  color: Colors.black,
-                                  size: 35.w,
+                                Container(
+                                  height: 100.h,
+                                  width: 100.w,
+                                  decoration: BoxDecoration(
+                                    color: Colors.black,
+                                    image: Image.network(im),
+                                  ),
                                 ),
                                 Text(
                                   car.maker + " " + car.model,
