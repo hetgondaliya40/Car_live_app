@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_appp_1_0/modal/modal.dart';
 
-bool islike = false;
+bool islike = true;
 List favList = [];
 
 class Detail_page extends StatefulWidget {
@@ -31,29 +31,32 @@ class _Detail_pageState extends State<Detail_page> {
         ),
         actions: [
           IconButton(
-              onPressed: () {
-                if (!favList.contains(cars)) {
-                  favList.add(cars);
-                }
-                islike = !islike;
-                setState(() {});
-              },
-              icon: (islike == false)
-                  ? Icon(
-                      Icons.favorite,
-                      color: Colors.red,
-                    )
-                  : Icon(
-                      Icons.favorite_border,
-                    )),
+            onPressed: () {
+              if (!favList.contains(cars)) {
+                favList.add(cars);
+              }
+              islike = !islike;
+              setState(() {});
+            },
+            icon: (islike == false)
+                ? Icon(
+                    Icons.favorite,
+                    color: Colors.red,
+                  )
+                : Icon(
+                    Icons.favorite_border,
+                  ),
+          ),
         ],
       ),
       body: Column(
         children: [
           Expanded(
               flex: 3,
-              child: Container(
-                color: Colors.red,
+              child: Column(
+                children: [
+                  Container(),
+                ],
               )),
           Expanded(
             flex: 4,
@@ -123,7 +126,7 @@ class _Detail_pageState extends State<Detail_page> {
                   ),
                   Divider(),
                   SizedBox(
-                    height: 10.h,
+                    height: 5.h,
                   ),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
@@ -324,9 +327,6 @@ class _Detail_pageState extends State<Detail_page> {
                         ),
                       ],
                     ),
-                  ),
-                  SizedBox(
-                    height: 5.h,
                   ),
                   Divider(),
                   Row(
