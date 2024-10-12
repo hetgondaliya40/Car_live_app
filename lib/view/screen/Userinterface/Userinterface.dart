@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -328,7 +330,10 @@ class _UserState extends State<User> {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    log("favorite Clicked...");
+                    Navigator.pushNamed(context, Routes.favorite);
+                  },
                   child: const Icon(
                     CupertinoIcons.heart,
                     color: Colors.grey,

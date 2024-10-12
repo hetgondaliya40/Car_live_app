@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_appp_1_0/modal/modal.dart';
-import 'package:new_appp_1_0/view/screen/Add/add.dart';
+
+bool islike = false;
+List favList = [];
 
 class Detail_page extends StatefulWidget {
   const Detail_page({super.key});
@@ -17,10 +19,34 @@ class _Detail_pageState extends State<Detail_page> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: Text(
           cars.registration.toString(),
         ),
-        centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_ios_new),
+        ),
+        actions: [
+          IconButton(
+              onPressed: () {
+                if (!favList.contains(cars)) {
+                  favList.add(cars);
+                }
+                islike = !islike;
+                setState(() {});
+              },
+              icon: (islike == false)
+                  ? Icon(
+                      Icons.favorite,
+                      color: Colors.red,
+                    )
+                  : Icon(
+                      Icons.favorite_border,
+                    )),
+        ],
       ),
       body: Column(
         children: [
@@ -32,8 +58,8 @@ class _Detail_pageState extends State<Detail_page> {
           Expanded(
             flex: 4,
             child: Container(
-              padding: EdgeInsets.all(16),
-              decoration: BoxDecoration(
+              padding: const EdgeInsets.all(16),
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(20),
@@ -48,17 +74,20 @@ class _Detail_pageState extends State<Detail_page> {
                         "Modal Name :- ",
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
-                          fontSize: 22.sp,
+                          fontSize: 25.sp,
                         ),
                       ),
                       Text(
                         cars.model.toString(),
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 22.sp,
+                          fontSize: 25.sp,
                         ),
                       ),
                     ],
+                  ),
+                  SizedBox(
+                    height: 5.h,
                   ),
                   Row(
                     children: [
@@ -66,31 +95,35 @@ class _Detail_pageState extends State<Detail_page> {
                         "Maker Name :- ",
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
-                          fontSize: 18.sp,
+                          fontSize: 20.sp,
                         ),
                       ),
                       Text(
                         cars.maker.toString(),
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 16.sp,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        "Features ",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
                           fontSize: 18.sp,
                         ),
                       ),
                     ],
                   ),
                   SizedBox(
-                    height: 5.h,
+                    height: 15.h,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        "Details ",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 22.sp,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Divider(),
+                  SizedBox(
+                    height: 10.h,
                   ),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
@@ -106,23 +139,28 @@ class _Detail_pageState extends State<Detail_page> {
                           ),
                           child: Column(
                             children: [
-                              CircleAvatar(
+                              SizedBox(
+                                height: 10.h,
+                              ),
+                              const CircleAvatar(
+                                backgroundColor: Colors.white,
                                 child: Icon(
                                   Icons.local_gas_station,
+                                  color: Colors.black,
                                 ),
-                                backgroundColor: Colors.white,
                               ),
                               SizedBox(
-                                height: 5.h,
+                                height: 7.h,
                               ),
-                              Text("Vearsion"),
+                              const Text("Vearsion"),
                               SizedBox(
-                                height: 15.h,
+                                height: 25.h,
                               ),
                               Text(
                                 cars.version.toString(),
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
+                                  fontSize: 17.sp,
                                 ),
                               ),
                             ],
@@ -141,18 +179,22 @@ class _Detail_pageState extends State<Detail_page> {
                           ),
                           child: Column(
                             children: [
-                              CircleAvatar(
+                              SizedBox(
+                                height: 10.h,
+                              ),
+                              const CircleAvatar(
                                 child: Icon(
                                   Icons.local_gas_station,
+                                  color: Colors.black,
                                 ),
                                 backgroundColor: Colors.white,
                               ),
                               SizedBox(
-                                height: 5.h,
+                                height: 7.h,
                               ),
                               Text("Fule Type"),
                               SizedBox(
-                                height: 15.h,
+                                height: 25.h,
                               ),
                               Text(
                                 cars.fuel,
@@ -176,18 +218,22 @@ class _Detail_pageState extends State<Detail_page> {
                           ),
                           child: Column(
                             children: [
+                              SizedBox(
+                                height: 10.h,
+                              ),
                               CircleAvatar(
                                 child: Icon(
                                   Icons.format_paint,
+                                  color: Colors.black,
                                 ),
                                 backgroundColor: Colors.white,
                               ),
                               SizedBox(
-                                height: 5.h,
+                                height: 7.h,
                               ),
                               Text("Color"),
                               SizedBox(
-                                height: 15.h,
+                                height: 25.h,
                               ),
                               Text(
                                 cars.colour,
@@ -211,18 +257,22 @@ class _Detail_pageState extends State<Detail_page> {
                           ),
                           child: Column(
                             children: [
+                              SizedBox(
+                                height: 10.h,
+                              ),
                               CircleAvatar(
                                 child: Icon(
                                   Icons.pin,
+                                  color: Colors.black,
                                 ),
                                 backgroundColor: Colors.white,
                               ),
                               SizedBox(
-                                height: 5.h,
+                                height: 7.h,
                               ),
                               Text("Km"),
                               SizedBox(
-                                height: 15.h,
+                                height: 25.h,
                               ),
                               Text(
                                 cars.km.toString(),
@@ -246,18 +296,22 @@ class _Detail_pageState extends State<Detail_page> {
                           ),
                           child: Column(
                             children: [
+                              SizedBox(
+                                height: 10.h,
+                              ),
                               CircleAvatar(
                                 child: Icon(
                                   Icons.how_to_reg,
+                                  color: Colors.black,
                                 ),
                                 backgroundColor: Colors.white,
                               ),
                               SizedBox(
-                                height: 5.h,
+                                height: 7.h,
                               ),
                               Text("Registration"),
                               SizedBox(
-                                height: 15.h,
+                                height: 25.h,
                               ),
                               Text(
                                 cars.registration.toString(),
@@ -272,7 +326,34 @@ class _Detail_pageState extends State<Detail_page> {
                     ),
                   ),
                   SizedBox(
-                    height: 60.h,
+                    height: 5.h,
+                  ),
+                  Divider(),
+                  Row(
+                    children: [
+                      Icon(Icons.person_rounded),
+                      SizedBox(
+                        width: 5.w,
+                      ),
+                      Text(
+                        "Owner  :- ",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20.sp,
+                        ),
+                      ),
+                      Text(
+                        cars.ownership.toString(),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18.sp,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Divider(),
+                  SizedBox(
+                    height: 15.h,
                   ),
                   Row(
                     children: [
@@ -281,7 +362,12 @@ class _Detail_pageState extends State<Detail_page> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Price"),
+                            Text(
+                              "Price",
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                              ),
+                            ),
                             Text(
                               cars.askingPrice.toString(),
                               style: TextStyle(
