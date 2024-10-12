@@ -212,34 +212,40 @@ class _UserState extends State<User> {
                         itemCount: carList.length,
                         itemBuilder: (context, index) {
                           final car = carList[index];
-                          return Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                            ),
-                            elevation: 5,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Icon(
-                                  Icons.directions_car,
-                                  color: Colors.black,
-                                  size: 35.w,
-                                ),
-                                Text(
-                                  car.maker + " " + car.model,
-                                  style: TextStyle(
-                                    fontSize: 18.sp,
-                                    fontWeight: FontWeight.w600,
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, Routes.detail,
+                                  arguments: car);
+                            },
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                              elevation: 5,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Icon(
+                                    Icons.directions_car,
+                                    color: Colors.black,
+                                    size: 35.w,
                                   ),
-                                ),
-                                Text(
-                                  "Year: ${car.year} | Fuel: ${car.fuel}",
-                                  style: TextStyle(fontSize: 14.sp),
-                                ),
-                                Text(
-                                  "₹${car.askingPrice}",
-                                ),
-                              ],
+                                  Text(
+                                    car.maker + " " + car.model,
+                                    style: TextStyle(
+                                      fontSize: 18.sp,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  Text(
+                                    "Year: ${car.year} | Fuel: ${car.fuel}",
+                                    style: TextStyle(fontSize: 14.sp),
+                                  ),
+                                  Text(
+                                    "₹${car.askingPrice}",
+                                  ),
+                                ],
+                              ),
                             ),
                           );
                           // return ListTile(

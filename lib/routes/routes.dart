@@ -1,3 +1,4 @@
+import 'package:new_appp_1_0/view/screen/Detail/detail.dart';
 import 'package:new_appp_1_0/view/screen/Userinterface/Userinterface.dart';
 import 'package:new_appp_1_0/view/screen/home_page/homepage2.dart';
 
@@ -16,6 +17,7 @@ class Routes {
   static String Userinterface = "Userinterface_";
   static String identity = "Identity";
   static String add = "add";
+  static String detail = "detail_page";
 
   static Map<String, WidgetBuilder> myRoutes = {
     splashScreen: (context) => const SplashScreen(),
@@ -25,5 +27,6 @@ class Routes {
     Userinterface: (context) => const User(),
     identity: (context) => const Identity(),
     add: (context) => const AddCarPage(),
+    detail: (context) => const Detail_page(),
   };
 }
