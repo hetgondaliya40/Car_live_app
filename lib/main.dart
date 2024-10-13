@@ -9,5 +9,6 @@ void main() {
       systemNavigationBarColor: Color(0xff000000),
     ),
   );
+
   runApp(const CarApp());
 }

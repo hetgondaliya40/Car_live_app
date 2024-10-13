@@ -1,3 +1,5 @@
+import 'dart:io';
+
 class ModalClass {
   String? registration;
   String? maker;
@@ -10,6 +12,7 @@ class ModalClass {
   int ownership;
   String insurance;
   double askingPrice;
+  File? image;
 
   ModalClass({
     required this.registration,
@@ -23,6 +26,7 @@ class ModalClass {
     required this.ownership,
     required this.insurance,
     required this.askingPrice,
+    required this.image,
   });
 }
 

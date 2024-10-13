@@ -26,9 +26,10 @@ class _FavoritePageState extends State<FavoritePage> {
         ),
       ),
       body: (favList.isNotEmpty)
-          ? Padding(
+          ? ListView.builder(
+              itemCount: favList.length,
               padding: const EdgeInsets.all(16),
-              child: Container(
+              itemBuilder: (context, index) => Container(
                 height: 150.h,
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -37,7 +38,7 @@ class _FavoritePageState extends State<FavoritePage> {
                 ),
                 child: Column(
                   children: [
-                    Text(""),
+                    Text(favList[index].insurance),
                   ],
                 ),
               ),

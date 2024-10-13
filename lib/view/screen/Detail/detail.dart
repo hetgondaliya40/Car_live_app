@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_appp_1_0/modal/modal.dart';
 
 bool islike = true;
-List favList = [];
+List<ModalClass> favList = [];
 List cartList = [];
 
 class Detail_page extends StatefulWidget {

@@ -36,6 +36,7 @@ class _UserState extends State<User> {
       },
       child: SafeArea(
         child: Scaffold(
+          resizeToAvoidBottomInset: false,
           backgroundColor: Colors.white,
           body: Column(
             children: [
@@ -237,13 +238,10 @@ class _UserState extends State<User> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
                                         children: [
-                                          Icon(
-                                            Icons.directions_car,
-                                            color: Colors.black,
-                                            size: 35.w,
-                                          ),
+                                          Image.file(car.image!),
                                           Text(
-                                            car.maker + " " + car.model,
+                                            car.maker.toString() +
+                                                car.model.toString(),
                                             style: TextStyle(
                                               fontSize: 18.sp,
                                               fontWeight: FontWeight.w600,

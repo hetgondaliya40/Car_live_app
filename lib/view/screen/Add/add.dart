@@ -20,7 +20,7 @@ TextEditingController ownershipController = TextEditingController();
 TextEditingController insuranceController = TextEditingController();
 TextEditingController askingPriceController = TextEditingController();
 
-List carList = [];
+List<ModalClass> carList = [];
 
 // Form Key
 GlobalKey<FormState> formKey = GlobalKey();
@@ -214,6 +214,7 @@ class _AddCarPageState extends State<AddCarPage> {
                       onPressed: () {
                         if (formKey.currentState?.validate() == true) {
                           ModalClass car = ModalClass(
+                            image: carImage,
                             registration: regController.text,
                             maker: makerController.text,
                             model: modelController.text,
@@ -232,6 +233,7 @@ class _AddCarPageState extends State<AddCarPage> {
 
                           // Clear the TextEditingController values
                           regController.clear();
+                          carImage = null;
                           makerController.clear();
                           modelController.clear();
                           versionController.clear();
@@ -259,14 +261,14 @@ class _AddCarPageState extends State<AddCarPage> {
                         }
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.teal,
+                        backgroundColor: const Color(0xff1f2029),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16)),
                         padding: const EdgeInsets.symmetric(vertical: 16),
                       ),
                       child: const Text(
                         "Save",
-                        style: TextStyle(fontSize: 18),
+                        style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
                     ),
                   ],
