@@ -238,7 +238,9 @@ class _UserState extends State<User> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
                                         children: [
-                                          Image.file(car.image!),
+                                          Image.file(
+                                            car.image!,
+                                          ),
                                           Text(
                                             car.maker.toString() +
                                                 car.model.toString(),
@@ -304,7 +306,7 @@ class _UserState extends State<User> {
           ),
           bottomNavigationBar: Container(
             width: double.infinity,
-            height: 50,
+            height: 60,
             margin: const EdgeInsets.all(15),
             padding: const EdgeInsets.all(5),
             decoration: BoxDecoration(

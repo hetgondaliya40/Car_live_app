@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_appp_1_0/modal/modal.dart';
 
+import '../home_page/homepage2.dart';
+
 bool islike = true;
 List<ModalClass> favList = [];
 List cartList = [];
@@ -56,7 +58,16 @@ class _Detail_pageState extends State<Detail_page> {
             flex: 3,
             child: Column(
               children: [
-                Container(),
+                Container(
+                    height: 350.h,
+                    width: double.infinity,
+                    child: Transform.scale(
+                      scale: 1.2,
+                      child: Image(
+                        image: FileImage(image!),
+                        fit: BoxFit.cover,
+                      ),
+                    )),
               ],
             ),
           ),

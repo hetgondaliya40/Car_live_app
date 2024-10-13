@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_appp_1_0/view/screen/Detail/detail.dart';
 
+import '../../../routes/routes.dart';
+import '../home_page/homepage2.dart';
+
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
 
@@ -14,28 +17,90 @@ class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffDADCDE),
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(CupertinoIcons.back),
+          icon: Icon(
+            CupertinoIcons.back,
+            size: 30,
+          ),
+        ),
+        title: Text(
+          "Your Booking ",
+          style: TextStyle(
+            fontSize: 22.sp,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
       body: (cartList.isNotEmpty)
-          ? Padding(
+          ? ListView.builder(
+              itemCount: cartList.length,
               padding: const EdgeInsets.all(16),
-              child: Container(
-                height: 150.h,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Color(0xffe1e3e5),
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Column(
-                  children: [
-                    Text(""),
-                  ],
+              itemBuilder: (context, index) => Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: 150.h,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Row(
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 10,
+                            ),
+                            child: Container(
+                              height: 125.h,
+                              width: 150.w,
+                              decoration: BoxDecoration(
+                                color: Colors.grey.shade500,
+                                borderRadius: BorderRadius.circular(15.sp),
+                              ),
+                              child: Image(
+                                image: FileImage(image!),
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        width: 80.w,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 10),
+                            child: Text(
+                              cartList[index].maker.toString(),
+                              style: TextStyle(
+                                fontSize: 25.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            "Price : ${cartList[index].askingPrice}".toString(),
+                            style: TextStyle(
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             )
