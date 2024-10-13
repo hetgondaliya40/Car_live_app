@@ -147,6 +147,45 @@ class _Detail_pageState extends State<Detail_page> {
                               SizedBox(
                                 height: 10.h,
                               ),
+                              CircleAvatar(
+                                child: Icon(
+                                  Icons.person,
+                                  color: Colors.black,
+                                ),
+                                backgroundColor: Colors.white,
+                              ),
+                              SizedBox(
+                                height: 7.h,
+                              ),
+                              Text("Owner"),
+                              SizedBox(
+                                height: 25.h,
+                              ),
+                              Text(
+                                cars.ownership.toString(),
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10.w,
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(5),
+                          height: 150,
+                          width: 100,
+                          decoration: BoxDecoration(
+                            color: Color(0xffe1e3e5),
+                            borderRadius: BorderRadius.circular(14),
+                          ),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 10.h,
+                              ),
                               const CircleAvatar(
                                 backgroundColor: Colors.white,
                                 child: Icon(
@@ -291,9 +330,6 @@ class _Detail_pageState extends State<Detail_page> {
                         SizedBox(
                           width: 10.w,
                         ),
-                        SizedBox(
-                          width: 10.w,
-                        ),
                         Container(
                           padding: const EdgeInsets.all(5),
                           height: 150,
@@ -332,42 +368,6 @@ class _Detail_pageState extends State<Detail_page> {
                         ),
                         SizedBox(
                           width: 10.w,
-                        ),
-                        Container(
-                          padding: const EdgeInsets.all(5),
-                          height: 150,
-                          width: 100,
-                          decoration: BoxDecoration(
-                            color: Color(0xffe1e3e5),
-                            borderRadius: BorderRadius.circular(14),
-                          ),
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: 10.h,
-                              ),
-                              CircleAvatar(
-                                child: Icon(
-                                  Icons.person,
-                                  color: Colors.black,
-                                ),
-                                backgroundColor: Colors.white,
-                              ),
-                              SizedBox(
-                                height: 7.h,
-                              ),
-                              Text("Registration"),
-                              SizedBox(
-                                height: 25.h,
-                              ),
-                              Text(
-                                cars.ownership.toString(),
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
                         ),
                       ],
                     ),
