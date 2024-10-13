@@ -52,9 +52,15 @@ class _AddCarPageState extends State<AddCarPage> {
       child: SafeArea(
         child: Scaffold(
           appBar: AppBar(
-            title: const Text("Add Car Details"),
+            title: const Text(
+              "Add Car Details",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+              ),
+            ),
             centerTitle: true,
-            backgroundColor: Colors.teal,
+            backgroundColor: const Color(0xff1f2029),
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(16)),
             ),
@@ -80,7 +86,7 @@ class _AddCarPageState extends State<AddCarPage> {
                           backgroundColor: Colors.grey.shade200,
                         ),
                         FloatingActionButton.small(
-                          backgroundColor: Colors.teal,
+                          backgroundColor: const Color(0xff1f2029),
                           onPressed: () {
                             showDialog(
                               context: context,
@@ -111,7 +117,10 @@ class _AddCarPageState extends State<AddCarPage> {
                               ),
                             );
                           },
-                          child: const Icon(Icons.add),
+                          child: const Icon(
+                            Icons.add,
+                            color: Colors.white,
+                          ),
                         ),
                       ],
                     ),

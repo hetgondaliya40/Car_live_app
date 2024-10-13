@@ -1,6 +1,7 @@
 import 'package:new_appp_1_0/view/favoriteppage/favorite.dart';
 import 'package:new_appp_1_0/view/screen/Detail/detail.dart';
 import 'package:new_appp_1_0/view/screen/Userinterface/Userinterface.dart';
+import 'package:new_appp_1_0/view/screen/cart/cart.dart';
 import 'package:new_appp_1_0/view/screen/home_page/homepage2.dart';
 import '../view/headers/headers.dart';
 import '../view/screen/Add/add.dart';
@@ -19,6 +20,7 @@ class Routes {
   static String add = "add";
   static String detail = "detail_page";
   static String favorite = "favorite_page";
+  static String cart = "cart_page";
 
   static Map<String, WidgetBuilder> myRoutes = {
     splashScreen: (context) => const SplashScreen(),
@@ -30,5 +32,6 @@ class Routes {
     add: (context) => const AddCarPage(),
     detail: (context) => const Detail_page(),
     favorite: (context) => const FavoritePage(),
+    cart: (context) => const CartPage(),
   };
 }

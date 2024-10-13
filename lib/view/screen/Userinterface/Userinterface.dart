@@ -322,7 +322,9 @@ class _UserState extends State<User> {
                   color: Colors.grey,
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, Routes.cart);
+                  },
                   child: const Icon(
                     CupertinoIcons.cart,
                     color: Colors.grey,

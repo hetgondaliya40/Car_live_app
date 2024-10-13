@@ -18,8 +18,9 @@ class _IdentityState extends State<Identity> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5),
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -100,7 +101,7 @@ class _IdentityState extends State<Identity> {
                   }
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
+                  backgroundColor: const Color(0xff1f2029),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),

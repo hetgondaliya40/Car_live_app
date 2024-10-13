@@ -1,19 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:new_appp_1_0/view/screen/Add/add.dart';
 import 'package:new_appp_1_0/view/screen/Detail/detail.dart';
 
-import '../../modal/modal.dart';
-
-class FavoritePage extends StatefulWidget {
-  const FavoritePage({super.key});
+class CartPage extends StatefulWidget {
+  const CartPage({super.key});
 
   @override
-  State<FavoritePage> createState() => _FavoritePageState();
+  State<CartPage> createState() => _CartPageState();
 }
 
-class _FavoritePageState extends State<FavoritePage> {
+class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +22,7 @@ class _FavoritePageState extends State<FavoritePage> {
           icon: Icon(CupertinoIcons.back),
         ),
       ),
-      body: (favList.isNotEmpty)
+      body: (cartList.isNotEmpty)
           ? Padding(
               padding: const EdgeInsets.all(16),
               child: Container(
@@ -42,9 +39,7 @@ class _FavoritePageState extends State<FavoritePage> {
                 ),
               ),
             )
-          : Center(
-              child: Text("Add Favorite"),
-            ),
+          : Text("Add to cart..."),
     );
   }
 }

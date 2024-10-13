@@ -65,7 +65,7 @@ class _Profile_pageState extends State<Profile_page> {
                     ),
                     CircleAvatar(
                       backgroundImage: FileImage(image!),
-                      radius: 50.sp,
+                      radius: 60.sp,
                     ),
                   ],
                 ),
@@ -95,6 +95,9 @@ class _Profile_pageState extends State<Profile_page> {
                           ),
                         ),
                       ],
+                    ),
+                    SizedBox(
+                      height: 20.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

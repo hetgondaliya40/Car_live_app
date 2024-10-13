@@ -4,6 +4,7 @@ import 'package:new_appp_1_0/modal/modal.dart';
 
 bool islike = true;
 List favList = [];
+List cartList = [];
 
 class Detail_page extends StatefulWidget {
   const Detail_page({super.key});
@@ -52,12 +53,13 @@ class _Detail_pageState extends State<Detail_page> {
       body: Column(
         children: [
           Expanded(
-              flex: 3,
-              child: Column(
-                children: [
-                  Container(),
-                ],
-              )),
+            flex: 3,
+            child: Column(
+              children: [
+                Container(),
+              ],
+            ),
+          ),
           Expanded(
             flex: 4,
             child: Container(
@@ -289,6 +291,9 @@ class _Detail_pageState extends State<Detail_page> {
                         SizedBox(
                           width: 10.w,
                         ),
+                        SizedBox(
+                          width: 10.w,
+                        ),
                         Container(
                           padding: const EdgeInsets.all(5),
                           height: 150,
@@ -325,35 +330,51 @@ class _Detail_pageState extends State<Detail_page> {
                             ],
                           ),
                         ),
+                        SizedBox(
+                          width: 10.w,
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(5),
+                          height: 150,
+                          width: 100,
+                          decoration: BoxDecoration(
+                            color: Color(0xffe1e3e5),
+                            borderRadius: BorderRadius.circular(14),
+                          ),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 10.h,
+                              ),
+                              CircleAvatar(
+                                child: Icon(
+                                  Icons.person,
+                                  color: Colors.black,
+                                ),
+                                backgroundColor: Colors.white,
+                              ),
+                              SizedBox(
+                                height: 7.h,
+                              ),
+                              Text("Registration"),
+                              SizedBox(
+                                height: 25.h,
+                              ),
+                              Text(
+                                cars.ownership.toString(),
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
                   Divider(),
-                  Row(
-                    children: [
-                      Icon(Icons.person_rounded),
-                      SizedBox(
-                        width: 5.w,
-                      ),
-                      Text(
-                        "Owner  :- ",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20.sp,
-                        ),
-                      ),
-                      Text(
-                        cars.ownership.toString(),
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18.sp,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Divider(),
                   SizedBox(
-                    height: 15.h,
+                    height: 10.h,
                   ),
                   Row(
                     children: [
@@ -380,20 +401,28 @@ class _Detail_pageState extends State<Detail_page> {
                       ),
                       Expanded(
                         flex: 3,
-                        child: Container(
-                          height: 50.h,
-                          width: 40.w,
-                          decoration: BoxDecoration(
-                            color: Color(0xff22262b),
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Buy now",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16.sp,
+                        child: GestureDetector(
+                          onTap: () {
+                            if (!cartList.contains(cars)) {
+                              cartList.add(cars);
+                            }
+                            setState(() {});
+                          },
+                          child: Container(
+                            height: 50.h,
+                            width: 40.w,
+                            decoration: BoxDecoration(
+                              color: Color(0xff22262b),
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Center(
+                              child: Text(
+                                "Buy now",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16.sp,
+                                ),
                               ),
                             ),
                           ),
