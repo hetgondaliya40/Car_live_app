@@ -61,17 +61,17 @@ class _FavoritePageState extends State<FavoritePage> {
                               decoration: BoxDecoration(
                                 color: Colors.grey.shade500,
                                 borderRadius: BorderRadius.circular(15.sp),
-                              ),
-                              child: Image(
-                                image: FileImage(image!),
-                                fit: BoxFit.fill,
+                                image: DecorationImage(
+                                  image: FileImage(favList[index].image!),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                           ),
                         ],
                       ),
                       SizedBox(
-                        width: 80.w,
+                        width: 30.w,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
@@ -82,7 +82,7 @@ class _FavoritePageState extends State<FavoritePage> {
                             child: Text(
                               favList[index].maker.toString(),
                               style: TextStyle(
-                                fontSize: 25.sp,
+                                fontSize: 20.sp,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -100,7 +100,7 @@ class _FavoritePageState extends State<FavoritePage> {
                             },
                             child: Container(
                               height: 50.h,
-                              width: 120.w,
+                              width: 80.w,
                               decoration: BoxDecoration(
                                 color: Color(0xff22262b),
                                 borderRadius: BorderRadius.circular(16),
@@ -111,7 +111,7 @@ class _FavoritePageState extends State<FavoritePage> {
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 16.sp,
+                                    fontSize: 10.sp,
                                   ),
                                 ),
                               ),

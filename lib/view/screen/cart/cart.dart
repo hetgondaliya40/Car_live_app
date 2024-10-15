@@ -64,17 +64,17 @@ class _CartPageState extends State<CartPage> {
                               decoration: BoxDecoration(
                                 color: Colors.grey.shade500,
                                 borderRadius: BorderRadius.circular(15.sp),
-                              ),
-                              child: Image(
-                                image: FileImage(image!),
-                                fit: BoxFit.fill,
+                                image: DecorationImage(
+                                  image: FileImage(favList[index].image!),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                           ),
                         ],
                       ),
                       SizedBox(
-                        width: 80.w,
+                        width: 30.w,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
@@ -83,15 +83,15 @@ class _CartPageState extends State<CartPage> {
                           Padding(
                             padding: const EdgeInsets.only(top: 10),
                             child: Text(
-                              cartList[index].maker.toString(),
+                              favList[index].maker.toString(),
                               style: TextStyle(
-                                fontSize: 25.sp,
+                                fontSize: 20.sp,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
                           Text(
-                            "Price : ${cartList[index].askingPrice}".toString(),
+                            "Price : ${favList[index].askingPrice}".toString(),
                             style: TextStyle(
                               fontSize: 15.sp,
                               fontWeight: FontWeight.bold,
@@ -104,7 +104,8 @@ class _CartPageState extends State<CartPage> {
                 ),
               ),
             )
-          : Text("Add to cart..."),
+          : Image.network(
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJyXw6y9t10dZ3kCd0d4DJyN8DEcZ1aVB6Kw&s"),
     );
   }
 }

@@ -40,6 +40,7 @@ dependencies:
   carousel_slider: ^5.0.0
   toastification: ^2.3.0
   flutter_slidable : any
+  url_launcher: any
 
 
 dev_dependencies:

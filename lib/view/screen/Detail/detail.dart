@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_appp_1_0/modal/modal.dart';
 
+import '../Add/add.dart';
 import '../home_page/homepage2.dart';
 
 bool islike = true;
@@ -20,7 +21,7 @@ class _Detail_pageState extends State<Detail_page> {
   Widget build(BuildContext context) {
     ModalClass cars = ModalRoute.of(context)!.settings.arguments as ModalClass;
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.transparent,
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Text(
@@ -42,11 +43,11 @@ class _Detail_pageState extends State<Detail_page> {
               setState(() {});
             },
             icon: (islike == false)
-                ? Icon(
+                ? const Icon(
                     Icons.favorite,
                     color: Colors.red,
                   )
-                : Icon(
+                : const Icon(
                     Icons.favorite_border,
                   ),
           ),
@@ -56,26 +57,29 @@ class _Detail_pageState extends State<Detail_page> {
         children: [
           Expanded(
             flex: 3,
-            child: Column(
-              children: [
-                Container(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
                     height: 350.h,
                     width: double.infinity,
                     child: Transform.scale(
-                      scale: 1.2,
+                      scale: 1,
                       child: Image(
-                        image: FileImage(image!),
+                        image: FileImage(cars.image!),
                         fit: BoxFit.cover,
                       ),
-                    )),
-              ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           Expanded(
             flex: 4,
             child: Container(
               padding: const EdgeInsets.all(16),
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(20),
@@ -150,7 +154,7 @@ class _Detail_pageState extends State<Detail_page> {
                           height: 150,
                           width: 100,
                           decoration: BoxDecoration(
-                            color: Color(0xffe1e3e5),
+                            color: const Color(0xffe1e3e5),
                             borderRadius: BorderRadius.circular(14),
                           ),
                           child: Column(
@@ -158,7 +162,7 @@ class _Detail_pageState extends State<Detail_page> {
                               SizedBox(
                                 height: 10.h,
                               ),
-                              CircleAvatar(
+                              const CircleAvatar(
                                 child: Icon(
                                   Icons.person,
                                   color: Colors.black,
@@ -174,7 +178,7 @@ class _Detail_pageState extends State<Detail_page> {
                               ),
                               Text(
                                 cars.ownership.toString(),
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -189,7 +193,7 @@ class _Detail_pageState extends State<Detail_page> {
                           height: 150,
                           width: 100,
                           decoration: BoxDecoration(
-                            color: Color(0xffe1e3e5),
+                            color: const Color(0xffe1e3e5),
                             borderRadius: BorderRadius.circular(14),
                           ),
                           child: Column(
@@ -247,13 +251,13 @@ class _Detail_pageState extends State<Detail_page> {
                               SizedBox(
                                 height: 7.h,
                               ),
-                              Text("Fule Type"),
+                              const Text("Fule Type"),
                               SizedBox(
                                 height: 25.h,
                               ),
                               Text(
                                 cars.fuel,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -276,7 +280,7 @@ class _Detail_pageState extends State<Detail_page> {
                               SizedBox(
                                 height: 10.h,
                               ),
-                              CircleAvatar(
+                              const CircleAvatar(
                                 child: Icon(
                                   Icons.format_paint,
                                   color: Colors.black,
@@ -292,7 +296,7 @@ class _Detail_pageState extends State<Detail_page> {
                               ),
                               Text(
                                 cars.colour,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -315,7 +319,7 @@ class _Detail_pageState extends State<Detail_page> {
                               SizedBox(
                                 height: 10.h,
                               ),
-                              CircleAvatar(
+                              const CircleAvatar(
                                 child: Icon(
                                   Icons.pin,
                                   color: Colors.black,
@@ -331,7 +335,7 @@ class _Detail_pageState extends State<Detail_page> {
                               ),
                               Text(
                                 cars.km.toString(),
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -354,7 +358,7 @@ class _Detail_pageState extends State<Detail_page> {
                               SizedBox(
                                 height: 10.h,
                               ),
-                              CircleAvatar(
+                              const CircleAvatar(
                                 child: Icon(
                                   Icons.how_to_reg,
                                   color: Colors.black,
@@ -370,7 +374,7 @@ class _Detail_pageState extends State<Detail_page> {
                               ),
                               Text(
                                 cars.registration.toString(),
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -384,9 +388,6 @@ class _Detail_pageState extends State<Detail_page> {
                     ),
                   ),
                   Divider(),
-                  SizedBox(
-                    height: 10.h,
-                  ),
                   Row(
                     children: [
                       Expanded(
