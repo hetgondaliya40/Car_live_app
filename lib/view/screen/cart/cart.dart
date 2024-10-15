@@ -104,8 +104,9 @@ class _CartPageState extends State<CartPage> {
                 ),
               ),
             )
-          : Image.network(
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJyXw6y9t10dZ3kCd0d4DJyN8DEcZ1aVB6Kw&s"),
+          : Center(
+              child: Text("Add Favorite"),
+            ),
     );
   }
 }

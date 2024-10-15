@@ -214,7 +214,7 @@ class _UserState extends State<User> {
                                 gridDelegate:
                                     SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 2,
-                                  mainAxisExtent: 200.h,
+                                  mainAxisExtent: 250.h,
                                 ),
                                 padding: EdgeInsets.all(8),
                                 itemCount: carList.length,
@@ -238,8 +238,21 @@ class _UserState extends State<User> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
                                         children: [
-                                          Image.file(
-                                            car.image!,
+                                          Container(
+                                            height: 175.h,
+                                            width: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color: Colors.red,
+                                              borderRadius: BorderRadius.only(
+                                                topLeft: Radius.circular(15.sp),
+                                                topRight:
+                                                    Radius.circular(15.sp),
+                                              ),
+                                              image: DecorationImage(
+                                                image: FileImage(car.image!),
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
                                           ),
                                           Text(
                                             car.maker.toString() +
