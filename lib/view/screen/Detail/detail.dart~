@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_appp_1_0/modal/modal.dart';
 
-import '../Add/add.dart';
-import '../home_page/homepage2.dart';
-
 bool islike = true;
 List<ModalClass> favList = [];
 List cartList = [];
@@ -21,7 +18,6 @@ class _Detail_pageState extends State<Detail_page> {
   Widget build(BuildContext context) {
     ModalClass cars = ModalRoute.of(context)!.settings.arguments as ModalClass;
     return Scaffold(
-      backgroundColor: Colors.transparent,
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Text(
