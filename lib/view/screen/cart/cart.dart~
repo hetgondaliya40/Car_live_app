@@ -50,7 +50,7 @@ class _CartPageState extends State<CartPage> {
                           setState(() {});
                         },
                         borderRadius: BorderRadius.circular(12),
-                        // foregroundColor: Colors.red,
+                       // foregroundColor: Colors.red,
                         backgroundColor: Colors.red,
                         icon: Icons.delete,
                       )
