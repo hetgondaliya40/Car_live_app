@@ -1,4 +1,4 @@
-# 🚗 GCP Car App 
+# 🚗 GCP Car App
 
 The **GCP Car App** is a car buying and selling mobile application built using **Flutter**.  
 This project is created **only for study purposes** to help understand Flutter development, Firebase Firestore integration, responsive UI design, and third-party package usage.
